@@ -497,7 +497,7 @@ void* venc_dev::async_venc_message_thread (void *input)
                     break;
                 }
 
-                venc_msg.msgcode = VEN_MSG_FLUSH_OUPUT_DONE;
+//                venc_msg.msgcode = VEN_MSG_FLUSH_OUPUT_DONE;
                 venc_msg.statuscode = VEN_S_SUCCESS;
 
                 if (omx->async_message_process(input,&venc_msg) < 0) {
@@ -3733,7 +3733,7 @@ unsigned venc_dev::venc_flush( unsigned port)
         }
     }
 
-    enc.cmd = V4L2_ENC_QCOM_CMD_FLUSH;
+//    enc.cmd = V4L2_ENC_QCOM_CMD_FLUSH;
     enc.flags = V4L2_QCOM_CMD_FLUSH_OUTPUT | V4L2_QCOM_CMD_FLUSH_CAPTURE;
 
     if (ioctl(m_nDriver_fd, VIDIOC_ENCODER_CMD, &enc)) {

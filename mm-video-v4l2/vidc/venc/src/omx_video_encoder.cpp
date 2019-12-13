@@ -2745,10 +2745,10 @@ int omx_venc::async_message_process (void *context, void* message)
             omx->post_event (0,m_sVenc_msg->statuscode,\
                     OMX_COMPONENT_GENERATE_EVENT_INPUT_FLUSH);
             break;
-        case VEN_MSG_FLUSH_OUPUT_DONE:
+/*        case VEN_MSG_FLUSH_OUPUT_DONE:
             omx->post_event (0,m_sVenc_msg->statuscode,\
                     OMX_COMPONENT_GENERATE_EVENT_OUTPUT_FLUSH);
-            break;
+            break;*/
         case VEN_MSG_INPUT_BUFFER_DONE:
             omxhdr = (OMX_BUFFERHEADERTYPE* )\
                      m_sVenc_msg->buf.clientdata;

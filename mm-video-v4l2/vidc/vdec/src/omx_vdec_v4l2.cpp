@@ -3355,13 +3355,13 @@ bool omx_vdec::execute_omx_flush(OMX_U32 flushType)
     struct v4l2_decoder_cmd dec;
     DEBUG_PRINT_LOW("in %s, flushing %u", __func__, (unsigned int)flushType);
     memset((void *)&v4l2_buf,0,sizeof(v4l2_buf));
-    dec.cmd = V4L2_DEC_QCOM_CMD_FLUSH;
+//    dec.cmd = V4L2_DEC_QCOM_CMD_FLUSH;
 
     DEBUG_PRINT_HIGH("in %s: reconfig? %d", __func__, in_reconfig);
 
     if (in_reconfig && flushType == OMX_CORE_OUTPUT_PORT_INDEX) {
         output_flush_progress = true;
-        dec.flags = V4L2_DEC_QCOM_CMD_FLUSH_CAPTURE;
+  //      dec.flags = V4L2_DEC_QCOM_CMD_FLUSH_CAPTURE;
     } else {
         /* XXX: The driver/hardware does not support flushing of individual ports
          * in all states. So we pretty much need to flush both ports internally,
@@ -3370,7 +3370,7 @@ bool omx_vdec::execute_omx_flush(OMX_U32 flushType)
          * we automatically omit sending the FLUSH done for the "opposite" port. */
         input_flush_progress = true;
         output_flush_progress = true;
-        dec.flags = V4L2_DEC_QCOM_CMD_FLUSH_OUTPUT | V4L2_DEC_QCOM_CMD_FLUSH_CAPTURE;
+    //    dec.flags = V4L2_DEC_QCOM_CMD_FLUSH_OUTPUT | V4L2_DEC_QCOM_CMD_FLUSH_CAPTURE;
         request_perf_level(VIDC_TURBO);
     }
 
